@@ -1,6 +1,6 @@
 # Creating the updated README.md file content based on user's request
 
-readme_content = """# 🐍 DSA with Python
+ 🐍 DSA with Python
 
 Welcome to the **DSA with Python** repository! 🚀  
 This repo is dedicated to implementing a wide range of **Data Structures and Algorithms (DSA)** using Python. Whether you're a beginner or an experienced programmer, this is a great resource to sharpen your problem-solving skills and prepare for coding interviews.
