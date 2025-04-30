@@ -36,6 +36,7 @@ class InsertStart:
         while temp.next.next != None:
             temp = temp.next
         temp.next = None
+        
     def freq(self):
         p = self.head
         f = {}
