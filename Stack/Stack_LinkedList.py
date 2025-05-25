@@ -1,7 +1,8 @@
 class Node:
-    def __init__(self, data):
+    def __init__(self, data,count,max_s):
         self.data = data
         self.next = None
+        self.count = 0
 
 class Stack:
     def __init__(self):
@@ -9,11 +10,15 @@ class Stack:
 
     def is_empty(self):
         return self.top is None
+    
+    def is_full(): 
+        return self.count >= self.max_size
 
-    def push(self, item):
+    def push(self, item,):
         new_node = Node(item)
         new_node.next = self.top
         self.top = new_node
+        self.count += 1
         print(f"Pushed item: {item}")
 
     def pop(self):
@@ -33,6 +38,7 @@ class Stack:
             while current:
                 print(current.data)
                 current = current.next
+            print(self.top)
 
 # Menu-driven program
 def main():

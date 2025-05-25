@@ -3,13 +3,13 @@ class Node:
         self.data = data
         self.left = None
         self.right = None
-        
-def inorder(node):
+
+def postorder(node):
     if node == None:
         return
-    inorder(node.left)
+    postorder(node.left)
+    postorder(node.right)
     print(node.data,end=" ")
-    inorder(node.right)
     
     
 root = Node(1)
@@ -23,6 +23,6 @@ root.right.right = Node(7)
 root.right.right.left = Node(9)
 root.right.right.right = Node(10)
 
-print("Inorder traversal is: ")
-inorder(root)
+print("Postorder traversal is: ")
+postorder(root)
         

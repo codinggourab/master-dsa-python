@@ -1,7 +1,9 @@
+#-------------------------SINGLY LINKED LIST-----------------------------
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+        self.prev = None
 
 class InsertStart:
     def __init__(self):
@@ -48,8 +50,27 @@ class InsertStart:
                 f[p.data] = 1
             p=p.next
         return f
+    
+    def findElement(self,value):
+        curr = self.head
+        while curr.next is not None:
+            if curr.data == value:
+                print("element found")
+            
+            curr = curr.next
+            
+    def reverseLL(self):
+        curr = self.head
+        prev = None
+         
+        while curr.next is not None:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+        self.head = prev
         
-               
+                    
     def display(self):
         curr = self.head
         if curr is None:
@@ -78,12 +99,19 @@ slist.AddLast(200)
 print("\nList after adding elements at the end:")
 slist.display()
 
-print("\nList after deleting first elements:")
-slist.delBegin()
-slist.display()
-print("\nList after deleting last elements:")
-slist.delLast()
+# print("\nList after deleting first elements:")
+# slist.delBegin()
+# slist.display()
+# print("\nList after deleting last elements:")
+# slist.delLast()
+# slist.display()
+
+# fr = slist.freq()
+# print("Frequency is : ",fr)
+
+# slist.findElement(80)
+
+
+slist.reverseLL()
 slist.display()
 
-fr = slist.freq()
-print("Frequency is : ",fr)

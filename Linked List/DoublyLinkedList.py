@@ -7,26 +7,29 @@ class Node:
 class Dbl_LinkedList:
     def __init__(self):
         self.head = None
+        self.tail = None
     
     def create(self,data):
         q = Node(data)
         
         if self.head is None:
-            self.head = q
+            self.head = self.tail =  q
         else:
             temp = self.head
             while temp.next != None:
                 temp = temp.next
             temp.next = q
+            q.prev = temp
+            self.tail = q
             
     def Add_Beg(self,data):
         q = Node(data)
         
         if self.head is None:
-            self.head = q
+            self.head = self.tail = q
         else:
-            temp= self.head
             q.next= self.head
+            self.head.prev = None
             self.head = q
             
     def Add_End(self,data):
@@ -34,12 +37,9 @@ class Dbl_LinkedList:
         if self.head is None:
             self.head = q
         else:
-            temp= self.head
-            while temp.next is not None:
-                temp = temp.next
-            q.prev = temp
-            temp.next = q
-            q.next = None  
+            self.tail.next = q
+            q.prev = self.tail
+            self.tail = q
             
     def Add_InBw(self,data,key):
          q = Node(data)
@@ -51,6 +51,9 @@ class Dbl_LinkedList:
                  q.prev = temp
                  if temp.next is not None:
                     temp.next.prev = q
+                 else:
+                     self.tail = q
+                    
                  temp.next = q
                  return
              temp = temp.next
@@ -87,6 +90,7 @@ class Dbl_LinkedList:
             while temp.next.next != None:
                 temp = temp.next
             temp.next = None
+    
                    
     def display(self):
         curr = self.head
@@ -99,6 +103,15 @@ class Dbl_LinkedList:
             curr = curr.next
         print("None")
         
+    def backwardTraverse(self):
+        curr = self.tail
+        while curr is not None:
+            print(curr.data,end="->")
+
+            curr = curr.prev
+        print("None")
+            
+        
         
 obj = Dbl_LinkedList()
 obj.create(20)
@@ -108,5 +121,8 @@ obj.Add_End(100)
 obj.Add_InBw(10,30)
 # obj.Del_Beg()
 # obj.Del_End()
-obj.Del_InBw(80)
+# obj.Del_InBw(80)
 obj.display()
+
+print("Backward Traversal is: ")
+obj.backwardTraverse()
